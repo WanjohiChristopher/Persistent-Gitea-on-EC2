@@ -1,0 +1,104 @@
+<mxfile host="65bd71144e">
+    <diagram name="Gitea Architecture" id="0">
+        <mxGraphModel dx="1025" dy="641" grid="0" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="0" pageScale="1" pageWidth="1400" pageHeight="900" math="0" shadow="0">
+            <root>
+                <mxCell id="0"/>
+                <mxCell id="1" parent="0"/>
+                <mxCell id="aws" value="AWS Cloud" style="points=[[0,0],[0.25,0],[0.5,0],[0.75,0],[1,0],[1,0.25],[1,0.5],[1,0.75],[1,1],[0.75,1],[0.5,1],[0.25,1],[0,1],[0,0.75],[0,0.5],[0,0.25]];shape=mxgraph.aws4.group;grIcon=mxgraph.aws4.group_aws_cloud_alt;strokeColor=#232F3E;fillColor=#FFFFFF;verticalLabelPosition=top;verticalAlign=bottom;align=center;html=1;fontSize=14;fontStyle=1;" parent="1" vertex="1">
+                    <mxGeometry x="100" y="40" width="1200" height="780" as="geometry"/>
+                </mxCell>
+                <mxCell id="region" value="Region (us-east-1)" style="points=[[0,0],[0.25,0],[0.5,0],[0.75,0],[1,0],[1,0.25],[1,0.5],[1,0.75],[1,1],[0.75,1],[0.5,1],[0.25,1],[0,1],[0,0.75],[0,0.5],[0,0.25]];shape=mxgraph.aws4.group;grIcon=mxgraph.aws4.group_region;strokeColor=#147EBA;fillColor=#E6F2F8;verticalLabelPosition=top;verticalAlign=bottom;align=center;html=1;fontSize=13;fontStyle=1;" parent="1" vertex="1">
+                    <mxGeometry x="140" y="80" width="1120" height="700" as="geometry"/>
+                </mxCell>
+                <mxCell id="az" value="Availability Zone (us-east-1a)" style="points=[[0,0],[0.25,0],[0.5,0],[0.75,0],[1,0],[1,0.25],[1,0.5],[1,0.75],[1,1],[0.75,1],[0.5,1],[0.25,1],[0,1],[0,0.75],[0,0.5],[0,0.25]];shape=mxgraph.aws4.group;grIcon=mxgraph.aws4.group_availability_zone;strokeColor=#147EBA;fillColor=#dae8fc;verticalLabelPosition=top;verticalAlign=bottom;align=center;html=1;fontSize=12;fontStyle=1;" parent="1" vertex="1">
+                    <mxGeometry x="180" y="130" width="780" height="600" as="geometry"/>
+                </mxCell>
+                <mxCell id="ec2box" value="EC2 Instance (Ubuntu)" style="points=[[0,0],[0.25,0],[0.5,0],[0.75,0],[1,0],[1,0.25],[1,0.5],[1,0.75],[1,1],[0.75,1],[0.5,1],[0.25,1],[0,1],[0,0.75],[0,0.5],[0,0.25]];shape=mxgraph.aws4.group;grIcon=mxgraph.aws4.group_ec2;strokeColor=#E25444;fillColor=#FDF3F1;verticalLabelPosition=top;verticalAlign=bottom;align=center;html=1;fontSize=12;fontStyle=1;" parent="1" vertex="1">
+                    <mxGeometry x="220" y="180" width="540" height="480" as="geometry"/>
+                </mxCell>
+                <mxCell id="dockerbox" value="Docker" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#E6F3FB;strokeColor=#1ba1e2;verticalLabelPosition=top;verticalAlign=bottom;align=center;fontSize=11;fontStyle=1;" parent="1" vertex="1">
+                    <mxGeometry x="260" y="240" width="340" height="260" as="geometry"/>
+                </mxCell>
+                <mxCell id="gitea" value="&lt;b&gt;Gitea Container&lt;/b&gt;&lt;br&gt;gitea/gitea:latest&lt;br&gt;Port 3000" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#dae8fc;strokeColor=#6c8ebf;fontSize=11;" parent="1" vertex="1">
+                    <mxGeometry x="300" y="290" width="180" height="70" as="geometry"/>
+                </mxCell>
+                <mxCell id="containerdata" value="/data (container)" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#fff2cc;strokeColor=#d6b656;fontSize=10;dashed=1;" parent="1" vertex="1">
+                    <mxGeometry x="320" y="400" width="140" height="40" as="geometry"/>
+                </mxCell>
+                <mxCell id="hostdata" value="~/data (host mount point)" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#fff2cc;strokeColor=#d6b656;fontSize=10;" parent="1" vertex="1">
+                    <mxGeometry x="300" y="560" width="180" height="50" as="geometry"/>
+                </mxCell>
+                <mxCell id="ebs" value="&lt;b&gt;EBS Volume&lt;/b&gt;&lt;br&gt;ext4 / 100 GiB&lt;br&gt;Mounted at ~/data" style="shape=mxgraph.aws4.resourceIcon;resIcon=mxgraph.aws4.ebs;labelBackgroundColor=#ffffff;sketch=0;fontStyle=1;fontSize=11;fillColor=#E25444;strokeColor=#ffffff;fontColor=#232F3E;labelPosition=center;verticalLabelPosition=bottom;verticalAlign=top;align=center;shape=mxgraph.aws4.resourceIcon;resIcon=mxgraph.aws4.ebs;labelBackgroundColor=#ffffff;sketch=0;fontStyle=1;fontSize=11;fillColor=#E25444;strokeColor=#ffffff;fontColor=#232F3E;labelPosition=center;verticalLabelPosition=bottom;verticalAlign=top;align=center;html=1;" parent="1" vertex="1">
+                    <mxGeometry x="640" y="530" width="60" height="60" as="geometry"/>
+                </mxCell>
+                <mxCell id="s3" value="&lt;b&gt;S3 Bucket&lt;/b&gt;&lt;br&gt;persistencebackups&lt;br&gt;*.tar.gz archives" style="shape=mxgraph.aws4.resourceIcon;resIcon=mxgraph.aws4.s3;labelBackgroundColor=#ffffff;sketch=0;fontStyle=1;fontSize=11;fillColor=#3F8624;strokeColor=#ffffff;fontColor=#232F3E;labelPosition=center;verticalLabelPosition=bottom;verticalAlign=top;align=center;&#xa;shape=mxgraph.aws4.resourceIcon;resIcon=mxgraph.aws4.ebs;labelBackgroundColor=#ffffff;sketch=0;fontStyle=1;fontSize=11;fillColor=#E25444;strokeColor=#ffffff;fontColor=#232F3E;labelPosition=center;verticalLabelPosition=bottom;verticalAlign=top;align=center;html=1;" parent="1" vertex="1">
+                    <mxGeometry x="1080" y="350" width="60" height="60" as="geometry"/>
+                </mxCell>
+                <mxCell id="backupsh" value="backup.sh&lt;br&gt;tar -czf + aws s3 cp" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#d5e8d4;strokeColor=#82b366;fontSize=10;" parent="1" vertex="1">
+                    <mxGeometry x="840" y="320" width="160" height="50" as="geometry"/>
+                </mxCell>
+                <mxCell id="restoresh" value="restore.sh&lt;br&gt;aws s3 cp + tar -xzf" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#f8cecc;strokeColor=#b85450;fontSize=10;" parent="1" vertex="1">
+                    <mxGeometry x="840" y="430" width="160" height="50" as="geometry"/>
+                </mxCell>
+                <mxCell id="dev" value="Me (Chris)&lt;br&gt;Browser / Git CLI" style="shape=mxgraph.aws4.user;fillColor=#232F3E;strokeColor=#ffffff;fontColor=#232F3E;labelPosition=center;verticalLabelPosition=bottom;verticalAlign=top;align=center;html=1;fontSize=11;" parent="1" vertex="1">
+                    <mxGeometry x="20" y="320" width="60" height="60" as="geometry"/>
+                </mxCell>
+                <mxCell id="e1" style="edgeStyle=orthogonalEdgeStyle;html=1;strokeColor=#6c8ebf;strokeWidth=2;" parent="1" source="dev" target="gitea" edge="1">
+                    <mxGeometry relative="1" as="geometry"/>
+                </mxCell>
+                <mxCell id="e1l" value=":3000" style="edgeLabel;html=1;fontSize=10;fontStyle=2;" parent="e1" vertex="1" connectable="0">
+                    <mxGeometry relative="1" as="geometry"/>
+                </mxCell>
+                <mxCell id="e2" style="edgeStyle=orthogonalEdgeStyle;html=1;strokeColor=#d6b656;strokeWidth=2;dashed=1;" parent="1" source="gitea" target="containerdata" edge="1">
+                    <mxGeometry relative="1" as="geometry"/>
+                </mxCell>
+                <mxCell id="e3" style="edgeStyle=orthogonalEdgeStyle;html=1;strokeColor=#d6b656;strokeWidth=2;dashed=1;" parent="1" source="containerdata" target="hostdata" edge="1">
+                    <mxGeometry relative="1" as="geometry"/>
+                </mxCell>
+                <mxCell id="e3l" value="bind mount" style="edgeLabel;html=1;fontSize=10;fontStyle=2;" parent="e3" vertex="1" connectable="0">
+                    <mxGeometry relative="1" as="geometry"/>
+                </mxCell>
+                <mxCell id="e4" style="edgeStyle=orthogonalEdgeStyle;html=1;strokeColor=#E25444;strokeWidth=2;" parent="1" source="hostdata" target="ebs" edge="1">
+                    <mxGeometry relative="1" as="geometry"/>
+                </mxCell>
+                <mxCell id="e4l" value="mounted" style="edgeLabel;html=1;fontSize=10;fontStyle=2;" parent="e4" vertex="1" connectable="0">
+                    <mxGeometry relative="1" as="geometry"/>
+                </mxCell>
+                <mxCell id="e5" style="edgeStyle=orthogonalEdgeStyle;html=1;strokeColor=#82b366;strokeWidth=2;" parent="1" source="ebs" target="backupsh" edge="1">
+                    <mxGeometry relative="1" as="geometry">
+                        <Array as="points">
+                            <mxPoint x="720" y="560"/>
+                            <mxPoint x="720" y="345"/>
+                        </Array>
+                    </mxGeometry>
+                </mxCell>
+                <mxCell id="e6" style="edgeStyle=orthogonalEdgeStyle;html=1;strokeColor=#3F8624;strokeWidth=2;" parent="1" source="backupsh" target="s3" edge="1">
+                    <mxGeometry relative="1" as="geometry"/>
+                </mxCell>
+                <mxCell id="e7" style="edgeStyle=orthogonalEdgeStyle;html=1;strokeColor=#b85450;strokeWidth=2;dashed=1;" parent="1" source="s3" target="restoresh" edge="1">
+                    <mxGeometry relative="1" as="geometry"/>
+                </mxCell>
+                <mxCell id="e8" style="edgeStyle=orthogonalEdgeStyle;html=1;strokeColor=#b85450;strokeWidth=2;dashed=1;" parent="1" source="restoresh" target="ebs" edge="1">
+                    <mxGeometry relative="1" as="geometry">
+                        <Array as="points">
+                            <mxPoint x="720" y="455"/>
+                            <mxPoint x="720" y="560"/>
+                        </Array>
+                    </mxGeometry>
+                </mxCell>
+                <mxCell id="leg_title" value="&lt;b&gt;Legend&lt;/b&gt;" style="text;html=1;fontSize=11;" parent="1" vertex="1">
+                    <mxGeometry x="1080" y="520" width="120" height="20" as="geometry"/>
+                </mxCell>
+                <mxCell id="leg1" value="Bind Mount" style="rounded=1;fillColor=#fff2cc;strokeColor=#d6b656;fontSize=10;" parent="1" vertex="1">
+                    <mxGeometry x="1080" y="545" width="100" height="24" as="geometry"/>
+                </mxCell>
+                <mxCell id="leg2" value="Backup flow" style="rounded=1;fillColor=#d5e8d4;strokeColor=#82b366;fontSize=10;" parent="1" vertex="1">
+                    <mxGeometry x="1080" y="578" width="100" height="24" as="geometry"/>
+                </mxCell>
+                <mxCell id="leg3" value="Restore flow" style="rounded=1;fillColor=#f8cecc;strokeColor=#b85450;fontSize=10;" parent="1" vertex="1">
+                    <mxGeometry x="1080" y="611" width="100" height="24" as="geometry"/>
+                </mxCell>
+            </root>
+        </mxGraphModel>
+    </diagram>
+</mxfile>
