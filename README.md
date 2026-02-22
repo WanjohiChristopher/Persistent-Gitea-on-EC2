@@ -85,10 +85,9 @@ sudo usermod -aG docker $USER
 ```
 
 ### 6. Run Gitea
-
+Instructions docker-compose.yml
 ```bash
-git clone https://github.com/<your-username>/gitea-ebs-s3.git
-cd gitea-ebs-s3
+
 docker compose up -d
 ```
 
